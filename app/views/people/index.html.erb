@@ -1,0 +1,31 @@
+<% content_for :main_section do %>
+  <h1>Listing people</h1>
+
+  <table>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Facebook url</th>
+      <th>About me</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.last_name %></td>
+        <td><%= person.first_name %></td>
+        <td><%= person.facebook_url %></td>
+        <td><%= person.about_me %></td>
+        <td><%= link_to 'Show', person %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+        <td><%= link_to 'Destroy', person, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <br/>
+
+  <%= link_to 'New Person', new_person_path %>
+<% end %>

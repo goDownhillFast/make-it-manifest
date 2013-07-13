@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  program_week: 2013-07-06
+  announcements: MyText
+
+two:
+  program_week: 2013-07-06
+  announcements: MyText

@@ -1,0 +1,27 @@
+<h1>Listing hymns</h1>
+
+<table>
+  <tr>
+    <th>Link</th>
+    <th>Hymn number</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hymns.each do |hymn| %>
+  <tr>
+    <td><%= hymn.link %></td>
+    <td><%= hymn.hymn_number %></td>
+    <td><%= hymn.title %></td>
+    <td><%= link_to 'Show', hymn %></td>
+    <td><%= link_to 'Edit', edit_hymn_path(hymn) %></td>
+    <td><%= link_to 'Destroy', hymn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hymn', new_hymn_path %>

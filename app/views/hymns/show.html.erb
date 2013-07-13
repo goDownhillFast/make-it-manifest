@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Link:</b>
+  <%= @hymn.link %>
+</p>
+
+<p>
+  <b>Hymn number:</b>
+  <%= @hymn.hymn_number %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @hymn.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_hymn_path(@hymn) %> |
+<%= link_to 'Back', hymns_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  link: MyString
+  hymn_number: 1
+  title: MyString
+
+two:
+  link: MyString
+  hymn_number: 1
+  title: MyString
