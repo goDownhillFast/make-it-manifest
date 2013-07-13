@@ -10,10 +10,17 @@
     width: 100%;
     height: 1.5em;
     margin-bottom: 1em;
+    text-align: left;
     overflow: hidden;
   }
   .item-with-person:after {
     content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+  }
+  .item-without-person {
+    width: 100%;
+    height: 1.5em;
+    margin-bottom: 1em;
+    text-align: center;
   }
   .person {
     float: right;

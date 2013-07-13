@@ -10,11 +10,12 @@
   <h4>Manhattan 3rd Ward</h4>
   <div class="program-page-layout">
     <ul class="sortable-list connectedSortable">
-      <li class="ui-state-default">
-        <div class="one-line">
-          <div class="item-with-person">Add Items Here</div>
-        </div>
-      </li>
+      <%= render :partial => 'one_line_item_with_person', :locals => { :name => "Presiding"} %>
+      <%= render :partial => 'one_line_item_with_person', :locals => { :name => "Conducting"} %>
+      <%= render :partial => 'one_line_item_with_person', :locals => { :name => "Invocation"} %>
+      <%= render :partial => 'one_line_item', :locals => { :name => "Ward Business"} %>
+      <%= render :partial => 'one_line_item', :locals => { :name => "Administration of the Sacrament"} %>
+      <%= render :partial => 'one_line_item_with_person', :locals => { :name => "Benediction"} %>
     </ul>
   </div>
 
@@ -32,11 +33,7 @@
     <h4>Program Items</h4>
     <ul class="sortable-option-list connectedSortable">
       <% @items.each do |item| %>
-        <li class="ui-state-default">
-          <div class="one-line droppable">
-            <div class="item-with-person"><%= item.name %></div>
-          </div>
-        </li>
+        <%= item.content %>
       <% end %>
     </ul>
   </div>
