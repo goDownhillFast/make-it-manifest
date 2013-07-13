@@ -12,3 +12,11 @@
   :title => "God Save the King"}]
 
  hymns.each { |hymn_data| Hymn.create!(hymn_data) }
+
+
+ items = [{:content => "<li class='ui-state-default' style='display: list-item;'>\n<div class='one-line droppable ui-droppable'>\n<div class='item-with-person'>Speaker</div>\n</div>\n</li>"},
+ {:content => "<li class='ui-state-default' style='display: list-item;'>\n<div class='one-line droppable ui-droppable'>\n<div class='item-with-person'>Presiding</div>\n</div>\n</li>"},
+ {:content => "<li class='ui-state-default' style='display: list-item;'>\n<div class='one-line droppable ui-droppable'>\n<div class='item-with-person'>Presiding</div>\n</div>\n</li>"},
+ ]
+
+items.each { |item| Item.create!(item)}
