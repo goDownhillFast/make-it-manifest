@@ -1,5 +1,5 @@
 $(function () {
-  $('.chzn-select').chosen();
+  $('.program-page-layout .chzn-select').chosen();
 
   $('.chzn-select').change(function () {
     var selected = $(this).find(":selected")
@@ -36,6 +36,10 @@ $(function () {
     receive: function (e, ui) {
       copyHelper = null;
     }
+  });
+
+  $('body').on('click', '.sortable-list .icon-trash', function(){
+    $(this).closest('li').remove()
   });
 
 });

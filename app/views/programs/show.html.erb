@@ -45,38 +45,6 @@
     </ul>
   </div>
 
-  <div class="row">
-    <h4>Ward Members</h4>
-
-    <div class="selection-list">
-      <% @people.each do |person| %>
-        <div class='person draggable'>
-          <div class="member-selection-visible">
-            <%= "#{person.last_name}, #{person.first_name}" %>
-
-            <%= content_tag(:a, :href => edit_person_path) do %>
-              <i class="icon-chevron-right"></i>
-            <% end %>
-          </div>
-          <div class="program-visible">
-            <%= link_to(person.full_name, person) %>
-          </div>
-        </div>
-
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <h4>Hymns</h4>
-    <select class="chzn-select">
-      <option>Pick a Hymn</option>
-      <% @hymns.each do |hymn| %>
-        <option id="<%= hymn.hymn_number %>" hymn-link="<%= hymn.link %>"><%= hymn.title %></option>
-      <% end %>
-    </select>
-  </div>
-
 <% end %>
 
 

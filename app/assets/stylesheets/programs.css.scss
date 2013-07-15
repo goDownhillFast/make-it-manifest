@@ -35,6 +35,7 @@
   .hymn {
     text-align: right;
     font-style: italic;
+    margin-bottom: 1em;
   }
   .modified-item {
     display: none;
@@ -45,11 +46,27 @@
   li {
     list-style-type: none;
   }
+  li:hover {
+    .icon-trash {
+      color: lightgray
+    };
+    cursor: pointer;
+  }
+  .icon-trash {
+   margin-right: 3px;
+   color: white;
+  }
+  .icon-trash:hover {
+    cursor: hand;
+  }
 }
 
 .selection-list {
-  .program-visible {
+  .choose-item, .icon-trash {
     display: none;
+  }
+  li:hover {
+    cursor: hand;
   }
   li {
     list-style-type: none;
