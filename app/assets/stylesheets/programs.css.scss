@@ -3,17 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .program-page-layout {
-  .one-line {
+  .one-line, .two-line {
     margin-bottom: 1em;
   }
-  .item-with-person {
+  .two-line {
+    margin-top:1em;
+  }
+  .item-with-elipses {
     width: 100%;
     height: 1.5em;
     margin-bottom: 1em;
     text-align: left;
     overflow: hidden;
   }
-  .item-with-person:after {
+  .item-with-elipses:after {
     content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
   }
   .item-without-person {
@@ -22,13 +25,19 @@
     margin-bottom: 1em;
     text-align: center;
   }
-  .person {
+  .person, .hymn, .choose-item {
     float: right;
     position: relative;
-    margin: -2.5em 0 0;
-    opacity: 1;
     background-color: white;
-    padding-right: 10px;
+    margin: -2.5em 0 0;
+    padding-left: 6px;
+  }
+  .hymn {
+    text-align: right;
+    font-style: italic;
+  }
+  .modified-item {
+    display: none;
   }
   .member-selection-visible {
     display: none;

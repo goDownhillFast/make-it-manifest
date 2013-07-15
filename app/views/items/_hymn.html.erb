@@ -1,0 +1,19 @@
+<li class="ui-state-default">
+  <div class="one-line line droppable">
+    <div class="item-with-elipses"><%= name %></div>
+    <div class="choose-item">
+      <select class="chzn-select">
+        <option>Pick a Hymn</option>
+        <% @hymns.each do |hymn| %>
+          <option value="<%= hymn.hymn_number %>" link="<%= hymn.link %>"><%= hymn.title %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="hymn modified-item">
+      <a>
+        <div class="hymn-number modified-name"></div>
+        <div class="hymn-name modified-value">#</div>
+      </a>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,18 @@
+<li class="ui-state-default">
+  <div class="one-line line droppable">
+    <div class="item-with-elipses"><%= name %></div>
+    <div class="choose-item">
+      <select class="chzn-select">
+        <option>Pick a Person</option>
+        <% @people.each do |person| %>
+          <option value="<%= person.id %>" link="<%= person_path %>"><%= person.full_name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="person modified-item">
+      <a>
+        <div class="hymn-number modified-name"></div>
+      </a>
+    </div>
+  </div>
+</li>
