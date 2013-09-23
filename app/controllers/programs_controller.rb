@@ -37,21 +37,23 @@ class ProgramsController < ApplicationController
   # GET /programs/1/edit
   def edit
     @program = Program.find(params[:id])
+    @people = Person.all
+    @items = Item.all
+    @hymns = Hymn.all
   end
 
   # POST /programs
   # POST /programs.json
   def create
-    @program = Program.new(params[:program])
+    @people = Person.all
+    @items = Item.all
+    @hymns = Hymn.all
+
+    @program = Program.create!(body_html: render_to_string('template', layout: false).html_safe)
 
     respond_to do |format|
-      if @program.save
         format.html { redirect_to @program, notice: 'Program was successfully created.' }
         format.json { render json: @program, status: :created, location: @program }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @program.errors, status: :unprocessable_entity }
-      end
     end
   end
 

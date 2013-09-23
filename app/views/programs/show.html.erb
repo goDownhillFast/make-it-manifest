@@ -1,52 +1,24 @@
-<% content_for :main_section do %>
-
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <b>Program week:</b>
-    <%= @program.program_week %>
-  </p>
-
-  <h4>Manhattan 3rd Ward</h4>
-  <div class="program-page-layout">
-    <ul class="sortable-list connectedSortable">
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Presiding"} %>
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Conducting"} %>
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Invocation"} %>
-      <%= render :partial => 'items/one_line_item', :locals => { :name => "Ward Business"} %>
-      <%= render :partial => 'items/one_line_item', :locals => { :name => "Administration of the Sacrament"} %>
-      <%= render :partial => 'items/hymn', :locals => { :name => "Closing Hymn"} %>
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Benediction"} %>
-    </ul>
+<div class="row">
+  <div class="row">
+    <%= image_tag('http://media.ldscdn.org/images/media-library/gospel-art/book-of-mormon/christ-appears-to-the-nephites-39663-tablet.jpg') %>
   </div>
-
-
-
-  <div style="clear:both; display: none">
+  <div class="row">
+    <h4>Manhattan 3rd Ward</h4>
+  </div>
+  <div class="row">
+    <%= @program.program_week %>
+  </div>
+</div>
+<div class="row">
+  <div class="columns large-8 program-page-layout">
+    <%= @program.body_html.html_safe %>
+  </div>
+  <div class="columns large-4">
     <b>Announcements:</b>
     <%= @program.announcements %>
   </div>
+</div>
 
-<% end %>
 
-<% content_for :side_section do %>
-  <div class="row">
-    <h4>Program Items</h4>
-    <ul class="sortable-option-list connectedSortable selection-list">
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Presiding"} %>
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Conducting"} %>
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Invocation"} %>
-      <%= render :partial => 'items/one_line_item', :locals => { :name => "Ward Business"} %>
-      <%= render :partial => 'items/one_line_item', :locals => { :name => "Administration of the Sacrament"} %>
-      <%= render :partial => 'items/one_line_item_with_person', :locals => { :name => "Benediction"} %>
-      <% @items.each do |item| %>
-        <%= item.content %>
-      <% end %>
-    </ul>
-  </div>
-
-  <%= render partial: 'pictures' %>
-
-<% end %>
 
 

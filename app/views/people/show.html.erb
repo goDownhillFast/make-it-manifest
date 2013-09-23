@@ -1,28 +1,11 @@
 <% content_for :main_section do %>
 
-  <p id="notice"><%= notice %></p>
+  <div class="row"><h1><%= @person.first_name %> <%= @person.last_name %></h1></div>
+  <div class="row">
+      <%= @person.about_me %>
+    </div>
+  <div class="row">
+    <%= link_to('Find on Facebook', @person.facebook_url) if @person.facebook_url.present? %>
+  </div>
 
-<p>
-  <b>Last name:</b>
-  <%= @person.last_name %>
-</p>
-
-<p>
-  <b>First name:</b>
-  <%= @person.first_name %>
-</p>
-
-<p>
-  <b>Facebook url:</b>
-  <%= @person.facebook_url %>
-</p>
-
-<p>
-  <b>About me:</b>
-  <%= @person.about_me %>
-</p>
-
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
 <% end %>

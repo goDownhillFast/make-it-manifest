@@ -5,7 +5,7 @@
       <select class="chzn-select">
         <option>Pick a Person</option>
         <% @people.each do |person| %>
-          <option value="<%= person.id %>" link="<%= person_path %>"><%= person.full_name %></option>
+          <option value="<%= person.id %>" link="../people/<%= person.id %>"><%= person.full_name %></option>
         <% end %>
       </select>
     </div>
