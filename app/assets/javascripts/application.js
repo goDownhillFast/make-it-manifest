@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require vendor/jquery.easing.1.3
 //= require jquery.ui.all
 //= require_tree .
 
