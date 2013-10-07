@@ -1,3 +1,6 @@
-<li class="ui-state-default">
-    <div class="item-without-person"><i class="icon-trash"></i><%= name %></div>
+<li class="ui-state-default <%= extra_class %>" data-item-name="<%= name %>">
+  <div class="one-line  line droppable">
+    <div class="throw-in-trash"><i class="icon-trash"></i></div>
+    <div class="item-without-person"><%= name %></div>
+  </div>
 </li>

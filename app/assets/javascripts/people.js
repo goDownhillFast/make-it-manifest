@@ -1,5 +1,8 @@
 $(function () {
-  $('.program-page-layout .chzn-select').chosen();
+  updateItemList();
+
+  $('.program-page-layout .chzn-container').remove();
+  $('.program-page-layout .chzn-select').removeClass('chzn-done').show().chosen();
 
   $('.chzn-select').change(function () {
     var selected = $(this).find(":selected")
@@ -10,11 +13,13 @@ $(function () {
       modified.find('.modified-value').append(selected.attr('value'));
     }
     $(this).closest('.choose-item').remove();
-    modified.fadeIn();
+    modified.fadeIn(200, function () {
+      commitBodyHTML()
+    });
+
   });
 
   $('.draggable').draggable({helper: 'clone'});
-
 
   droppableProgramElt($(".droppable"));
 
@@ -32,14 +37,24 @@ $(function () {
     }
   });
 
+  $('.program-page-layout').on('change', function () {
+    $.ajax({
+      data: {
+        body_html: $('program-page-layout').html()
+      }
+    })
+  })
+
   $(".connectedSortable").sortable({
     receive: function (e, ui) {
       copyHelper = null;
     }
   });
 
-  $('body').on('click', '.sortable-list .icon-trash', function(){
-    $(this).closest('li').remove()
+  $('body').on('click', '.sortable-list .icon-trash', function () {
+    $(this).closest('li').remove();
+    commitBodyHTML()
+    updateItemList()
   });
 
 });
@@ -47,13 +62,43 @@ $(function () {
 function droppableProgramElt(elt) {
   elt.droppable({
     drop: function (ev, ui) {
-      var dragged = $(ui.draggable.context).clone();
-      $(this).find('.draggable').remove();
-      $(this).append(dragged);
-      //      console.log(ui);
-//      console.log(ui.draggable.context);
-//      console.log($(ui.draggable.context).data('pic'));
+      console.log($(ui.draggable.context));
+//      var dragged = $(ui.draggable.context).clone();
+       setTimeout(
+         function(){
+           $('.program-page-layout .chzn-select').chosen();
 
+           updateItemList();
+           commitBodyHTML();
+         } ,200
+       );
     }
   });
+}
+
+function updateItemList(){
+  $('.sortable-option-list li').each(function(){
+    var this_option = $(this);
+    var item_name = this_option.attr('data-item-name');
+    var items_in_program = $(".program-page-layout .unique[data-item-name='" + item_name + "']")
+    if(items_in_program.length > 0) {
+      this_option.hide()
+    } else {
+      this_option.show()
+    }
+  })
+}
+
+function commitBodyHTML() {
+  $.ajax({
+    data: {
+      body_html: $('.program-page-layout').html()
+    },
+    type: 'put',
+    url: './',
+    dataType: 'json',
+    complete: function (data) {
+      console.log(data)
+    }
+  })
 }

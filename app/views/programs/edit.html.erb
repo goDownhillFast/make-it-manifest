@@ -23,13 +23,18 @@
   <div class="row">
     <h4>Program Items</h4>
     <ul class="sortable-option-list connectedSortable selection-list">
-      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Presiding", people: @people} %>
-      <%= render :partial => 'items/one_line_item_with_person', locals: {name:  "Conducting", people: @people} %>
-      <%= render :partial => 'items/one_line_item_with_person', locals: {name:  "Invocation", people: @people} %>
-      <%= render :partial => 'items/one_line_item', locals: {name:  "Ward Business", people: @people} %>
-      <%= render :partial => 'items/one_line_item', locals: {name:  "Administration of the Sacrament", people: @people} %>
-      <%= render :partial => 'items/hymn', locals: {name:  "Closing Hymn", people: @people} %>
-      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Benediction", people: @people} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Presiding", people: @people, extra_class: 'unique'} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name:  "Conducting", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/hymn', locals: {name:  "Opening Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name:  "Invocation", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/one_line_item', locals: {name:  "Ward Business", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/hymn', locals: {name:  "Sacrament Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/one_line_item', locals: {name:  "Administration of the Sacrament", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/one_line_item', locals: {name:  "Bearing of Testimonies", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Speaker", extra_class: 'multiple', people: @people} %>
+      <%= render :partial => 'items/hymn', locals: {name:  "Intermediate Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/hymn', locals: {name:  "Closing Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Benediction", extra_class: 'unique', people: @people} %>
       <% @items.each do |item| %>
         <%= item.content %>
       <% end %>

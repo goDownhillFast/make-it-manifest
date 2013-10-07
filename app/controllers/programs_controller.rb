@@ -36,6 +36,7 @@ class ProgramsController < ApplicationController
 
   # GET /programs/1/edit
   def edit
+    @content_partial = "layouts/two_column_layout"
     @program = Program.find(params[:id])
     @people = Person.all
     @items = Item.all
@@ -61,13 +62,14 @@ class ProgramsController < ApplicationController
   # PUT /programs/1.json
   def update
     @program = Program.find(params[:id])
-
+    puts @program.body_html
+    @program.update_attribute('body_html', params[:body_html])
     respond_to do |format|
       if @program.update_attributes(params[:program])
-        format.html { redirect_to @program, notice: 'Program was successfully updated.' }
-        format.json { head :no_content }
+        #format.html { redirect_to @program, notice: 'Program was successfully updated.' }
+        format.json { render json: {message: 'you did it!'} }
       else
-        format.html { render action: "edit" }
+        #format.html { render action: "edit" }
         format.json { render json: @program.errors, status: :unprocessable_entity }
       end
     end
