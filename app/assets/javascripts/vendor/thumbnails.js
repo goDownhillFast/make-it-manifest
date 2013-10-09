@@ -24,7 +24,9 @@
        */
       var w_ts_thumbnails	= o.thumb_width + 2*5,
           h_ts_thumbnails	= o.thumb_height + 2*5 + 6,
-          t_ts_thumbnails	= -(h_ts_thumbnails + 5),
+      // i don't get this calc so Im just putting my own in.
+          t_ts_thumbnails = -15,
+//          t_ts_thumbnails	= -(h_ts_thumbnails + 5),
           $first_nav		= $nav_elems.eq(0),
           l_ts_thumbnails	= $first_nav.position().left - 0.5*w_ts_thumbnails + 0.5*$first_nav.width();
 
