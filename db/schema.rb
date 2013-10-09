@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721002856) do
+ActiveRecord::Schema.define(:version => 20131009023548) do
 
   create_table "hymns", :force => true do |t|
     t.string   "link"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130721002856) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.text     "body_html"
+    t.string   "cover_pic_url"
   end
 
 end
