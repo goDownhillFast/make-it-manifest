@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require vendor/jquery.easing.1.3
+//= require vendor/thumbnails
 //= require jquery.ui.all
-//= require_tree .
+//= require chosen.jquery
+//= require people
+//= require programs
 
-$(function(){ $(document).foundation(); });
+//$(function(){ $(document).foundation(); });

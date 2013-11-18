@@ -8,7 +8,15 @@ SacramentMeetingProgram::Application.routes.draw do
   resources :people
 
 
-  resources :programs
+  resources :admin
+
+
+  resources :programs do
+    collection do
+      get 'print'
+    end
+  end
+
 
 
   # The priority is based upon order of creation:

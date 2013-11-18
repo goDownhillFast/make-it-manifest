@@ -92,7 +92,7 @@ function updateItemList(){
 function commitBodyHTML() {
   $.ajax({
     data: {
-      body_html: $('.program-page-layout').html()
+      program: {body_html: $('.program-page-layout').html()}
     },
     type: 'put',
     url: './',

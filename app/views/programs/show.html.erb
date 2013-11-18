@@ -1,6 +1,8 @@
 <div class="row">
   <div class="row">
-    <%= image_tag('http://media.ldscdn.org/images/media-library/gospel-art/book-of-mormon/christ-appears-to-the-nephites-39663-tablet.jpg') %>
+    <div class="cover-pic">
+      <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{@program.cover_pic_url}-tablet.jpg") %>
+    </div>
   </div>
   <div class="row">
     <h4>Manhattan 3rd Ward</h4>

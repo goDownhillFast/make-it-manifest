@@ -9,7 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation_and_overrides
+ *= require vendor/foundation/foundation
  *= require font-awesome
- *= require_tree .
+ *= require vendor/chosen
+ *= require vendor/thumbnails/thumbnail_slider
+ *= require application
+ *= require hymns
+ *= require items
+ *= require people
+ *= require programs
  */

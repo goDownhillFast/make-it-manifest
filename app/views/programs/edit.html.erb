@@ -1,16 +1,30 @@
 <% content_for :main_section do %>
 
-  <p id="notice"><%= notice %></p>
+  <p id="notice" xmlns="http://www.w3.org/1999/html"><%= notice %></p>
 
-  <p>
-    <b>Program week:</b>
-    <%= @program.program_week %>
-  </p>
+  <div class="program_date">
+    <%= select_date (@program.program_week || Date.today.sunday), prefix: :program_week %>
+  </div>
 
   <h4>Manhattan 3rd Ward</h4>
-  <div class="program-page-layout">
-    <%= @program.body_html.html_safe %>
-  </div>
+  <ul class="sortable-list connectedSortable ui-sortable program-page-layout">
+      <li class="ui-state-default">
+
+        <div class="one-line line droppable">
+          <div class="throw-in-trash"><i class="icon-trash"></i></div>
+          <div class="item-with-elipses">Blah</div>
+          <div class="choose-item">
+
+          </div>
+          <div class="person modified-item">
+            <a>
+              <div class="hymn-number modified-name"></div>
+            </a>
+          </div>
+        </div>
+      </li>
+      <%= @program.body_html.html_safe %>
+  </ul>
 
   <div style="clear:both; display: none">
     <b>Announcements:</b>
@@ -24,16 +38,16 @@
     <h4>Program Items</h4>
     <ul class="sortable-option-list connectedSortable selection-list">
       <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Presiding", people: @people, extra_class: 'unique'} %>
-      <%= render :partial => 'items/one_line_item_with_person', locals: {name:  "Conducting", extra_class: 'unique', people: @people} %>
-      <%= render :partial => 'items/hymn', locals: {name:  "Opening Hymn", extra_class: 'unique'} %>
-      <%= render :partial => 'items/one_line_item_with_person', locals: {name:  "Invocation", extra_class: 'unique', people: @people} %>
-      <%= render :partial => 'items/one_line_item', locals: {name:  "Ward Business", extra_class: 'unique', people: @people} %>
-      <%= render :partial => 'items/hymn', locals: {name:  "Sacrament Hymn", extra_class: 'unique'} %>
-      <%= render :partial => 'items/one_line_item', locals: {name:  "Administration of the Sacrament", extra_class: 'unique', people: @people} %>
-      <%= render :partial => 'items/one_line_item', locals: {name:  "Bearing of Testimonies", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Conducting", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/hymn', locals: {name: "Opening Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Invocation", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/one_line_item', locals: {name: "Ward Business", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/hymn', locals: {name: "Sacrament Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/one_line_item', locals: {name: "Administration of the Sacrament", extra_class: 'unique', people: @people} %>
+      <%= render :partial => 'items/one_line_item', locals: {name: "Bearing of Testimonies", extra_class: 'unique', people: @people} %>
       <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Speaker", extra_class: 'multiple', people: @people} %>
-      <%= render :partial => 'items/hymn', locals: {name:  "Intermediate Hymn", extra_class: 'unique'} %>
-      <%= render :partial => 'items/hymn', locals: {name:  "Closing Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/hymn', locals: {name: "Intermediate Hymn", extra_class: 'unique'} %>
+      <%= render :partial => 'items/hymn', locals: {name: "Closing Hymn", extra_class: 'unique'} %>
       <%= render :partial => 'items/one_line_item_with_person', locals: {name: "Benediction", extra_class: 'unique', people: @people} %>
       <% @items.each do |item| %>
         <%= item.content %>

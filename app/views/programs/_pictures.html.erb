@@ -3,7 +3,7 @@
     <% lds_org_pics.each do |pic| %>
       <li>
         <div class="micro-preview">
-          <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{pic[:src]}-thumbnail.jpg", alt: pic[:alt], style: "max-height:10px; max-width:10px") %>
+          <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{pic[:src]}-thumbnail.jpg", alt: pic[:alt], "data-cover-pic" => pic[:src], style: "max-height:10px; max-width:10px") %>
         </div>
       </li>
     <% end %>
@@ -23,4 +23,7 @@
       <span></span>
     </li>
   </ul>
+</div>
+<div id="cover-preview">
+  <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{@program.cover_pic}-tablet.jpg", "data-cover-pic" => @program.cover_pic) %>
 </div>

@@ -41,6 +41,7 @@ class ProgramsController < ApplicationController
     @people = Person.all
     @items = Item.all
     @hymns = Hymn.all
+    @default_date = (@program.program_week || Date.today.sunday).year
   end
 
   # POST /programs
@@ -58,12 +59,19 @@ class ProgramsController < ApplicationController
     end
   end
 
+  def print
+    @program = Program.last
+    respond_to do |format|
+      format.html {render :layout => false}
+    end
+  end
+
   # PUT /programs/1
   # PUT /programs/1.json
   def update
     @program = Program.find(params[:id])
     puts @program.body_html
-    @program.update_attribute('body_html', params[:body_html])
+    @program.update_attributes(params[:program])
     respond_to do |format|
       if @program.update_attributes(params[:program])
         #format.html { redirect_to @program, notice: 'Program was successfully updated.' }
