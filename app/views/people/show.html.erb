@@ -1,11 +1,29 @@
-<% content_for :main_section do %>
+<div class="show-page">
+  <div class="show-container">
 
-  <div class="row"><h1><%= @person.first_name %> <%= @person.last_name %></h1></div>
+    <div class="row section">
+      <div class="columns small-12">
+        <%= image_tag(@person.facebook_pic) if @person.facebook_id.present? %>
+        <div class="row"><h1><%= @person.first_name %> <%= @person.last_name %></h1></div>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="columns small-12">
+        <%= @person.about_me %>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="columns small-12">
+        <%= link_to('Find on Facebook', @person.facebook_url) if @person.facebook_id.present? %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
   <div class="row">
-      <%= @person.about_me %>
     </div>
   <div class="row">
-    <%= link_to('Find on Facebook', @person.facebook_url) if @person.facebook_url.present? %>
-  </div>
 
-<% end %>
+  </div>

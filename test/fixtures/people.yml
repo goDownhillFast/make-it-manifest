@@ -3,11 +3,11 @@
 one:
   last_name: MyString
   first_name: MyString
-  facebook_url: MyString
+  facebook_id: MyString
   about_me: MyText
 
 two:
   last_name: MyString
   first_name: MyString
-  facebook_url: MyString
+  facebook_id: MyString
   about_me: MyText
