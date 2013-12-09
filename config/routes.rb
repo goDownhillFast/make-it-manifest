@@ -14,10 +14,11 @@
   resources :programs do
     collection do
       get 'print'
+      get 'final'
     end
   end
 
-
+  root to: 'programs#final'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

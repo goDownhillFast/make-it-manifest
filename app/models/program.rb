@@ -1,7 +1,5 @@
 class Program < ActiveRecord::Base
-  validates_presence_of :body_html
-
-  before_create :calc_date
+  before_create :calc_defaults
 
   attr_accessible :announcements, :announcements2, :program_week, :body_html, :cover_pic_url
 
@@ -11,8 +9,11 @@ class Program < ActiveRecord::Base
 
   protected
 
-  def calc_date
+  def calc_defaults
    self.program_week = Date.today.sunday
+   self.body_html = ""
+   self.announcements = ""
+   self.announcements2 = ""
   end
 
 end

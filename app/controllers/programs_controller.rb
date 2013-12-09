@@ -14,9 +14,6 @@ class ProgramsController < ApplicationController
   # GET /programs/1.json
   def show
     @program = Program.find(params[:id])
-    @people = Person.all
-    @items = Item.all
-    @hymns = Hymn.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @program }
@@ -94,6 +91,14 @@ class ProgramsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to programs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def final
+    @program = Program.last
+    respond_to do |format|
+      format.html {render template: 'programs/show' }
+      format.json { render json: @program }
     end
   end
 end
