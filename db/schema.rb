@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131009023548) do
+ActiveRecord::Schema.define(:version => 20131118035409) do
 
   create_table "hymns", :force => true do |t|
     t.string   "link"
@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(:version => 20131009023548) do
   create_table "programs", :force => true do |t|
     t.date     "program_week"
     t.text     "announcements"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.text     "body_html"
     t.string   "cover_pic_url"
+    t.text     "announcements2"
   end
 
 end
