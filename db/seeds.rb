@@ -19,4 +19,4 @@
  {:content => "<li class='ui-state-default' style='display: list-item;'>\n<div class='one-line droppable ui-droppable'>\n<div class='item-with-elipses'>Presiding</div>\n</div>\n</li>"},
  ]
 
-items.each { |item| Item.create!(item)}
+#items.each { |item| Item.create!(item)}
