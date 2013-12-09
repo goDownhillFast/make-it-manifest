@@ -19,8 +19,41 @@ $(function () {
       url: './',
       dataType: 'json',
       complete: function (data) {
-        console.log(data)
       }
     })
-  })
+  });
+
+  $('#program_date select').on('change', function(){
+    $(this).closest('form').submit();
+  });
+
+  $('.button-save').on('click', function(){
+    commitBodyHTML();
+  });
+
+  $('.editor').popline();
+
+  $(window).on('scroll', function(){
+    var div_w_bg = $('.show-container');
+    var window_position = $(window).scrollTop();
+    div_w_bg.css('background-position-y',window_position / 2);
+  });
+
 });
+
+function commitBodyHTML() {
+  $.ajax({
+    data: {
+      program: {body_html: $('.program-page-layout').html(),
+        announcements: $('#announcements').html(),
+        announcements2: $('#announcements2').html()
+        }
+    },
+    type: 'put',
+    url: './',
+    dataType: 'json',
+    complete: function (data) {
+    }
+  })
+}
+

@@ -41,7 +41,6 @@ class ProgramsController < ApplicationController
     @people = Person.all
     @items = Item.all
     @hymns = Hymn.all
-    @default_date = (@program.program_week || Date.today.sunday).year
   end
 
   # POST /programs
@@ -70,7 +69,10 @@ class ProgramsController < ApplicationController
   # PUT /programs/1.json
   def update
     @program = Program.find(params[:id])
-    puts @program.body_html
+    if params[:program_week]
+      p = params[:program_week]
+      params[:program] ||= {program_week: Date.new(p[:year].to_i, p[:month].to_i, p[:day].to_i)}
+    end
     @program.update_attributes(params[:program])
     respond_to do |format|
       if @program.update_attributes(params[:program])

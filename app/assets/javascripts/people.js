@@ -88,17 +88,3 @@ function updateItemList(){
     }
   })
 }
-
-function commitBodyHTML() {
-  $.ajax({
-    data: {
-      program: {body_html: $('.program-page-layout').html()}
-    },
-    type: 'put',
-    url: './',
-    dataType: 'json',
-    complete: function (data) {
-      console.log(data)
-    }
-  })
-}
