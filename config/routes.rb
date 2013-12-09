@@ -1,4 +1,4 @@
-SacramentMeetingProgram::Application.routes.draw do
+  SacramentMeetingProgram::Application.routes.draw do
   resources :hymns
 
 

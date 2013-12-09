@@ -12,10 +12,12 @@
  *= require vendor/foundation/foundation
  *= require font-awesome
  *= require vendor/chosen
+ *= require vendor/popline/default
  *= require vendor/thumbnails/thumbnail_slider
  *= require application
  *= require hymns
  *= require items
  *= require people
+ *= require print
  *= require programs
  */

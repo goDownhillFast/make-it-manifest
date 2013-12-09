@@ -1,3 +1,14 @@
 @media print {
+  a {
+    text-decoration: none;
+    &:after { display:none; }
+  }
+  .modified-item {
+    background-color: white !important;
+  }
+  .icon-trash { display: none }
   .page-break { page-break-before: always; }
+  .program-page {
+    padding: 0 20px;
+  }
 }

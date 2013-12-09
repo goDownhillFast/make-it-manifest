@@ -11,14 +11,16 @@
 
 <div class="row page-1">
   <div class="row">
-    <div class="columns small-6">
+    <div class="columns large-6 program-page">
 
+      <%= @program.announcements2.html_safe %>
     </div>
-    <div class="columns small-6">
+    <div class="columns large-6">
       <div class="cover-pic">
         <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{@program.cover_pic_url}-tablet.jpg") %>
-        <h4>Manhattan 3rd Ward</h4>
-        <%= @program.program_week %>
+        <h3>Manhattan 3rd Ward</h3>
+
+        <h4><%= @program.program_week %></h4>
       </div>
     </div>
 
@@ -26,12 +28,17 @@
 
 </div>
 <div class="row page-2 page-break">
-  <div class="columns large-6 program-page-layout">
+
+  <div class="columns large-6 program-page-layout program-page">
+    <div style="margin:20px 0;text-align: center;">
+      <h3>Manhattan 3rd Ward</h3>
+
+      <h4><%= @program.program_week %></h4>
+    </div>
     <%= @program.body_html.html_safe %>
   </div>
-  <div class="columns large-6">
-    <h4>Announcements:</h4>
-    <%= @program.announcements %>
+  <div class="columns large-6 program-page">
+    <%= @program.announcements.html_safe %>
   </div>
 </div>
 </body>
