@@ -1,26 +1,36 @@
-<div class="row">
-  <div class="row">
-    <div class="cover-pic">
-      <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{@program.cover_pic_url}-tablet.jpg") %>
+<div class="show-page">
+  <div class="show-container">
+      <div class="row">
+        <div class="cover-pic">
+          <%= image_tag("http://media.ldscdn.org/images/media-library/gospel-art/#{@program.cover_pic_url}-tablet.jpg") %>
+        </div>
+      </div>
+    <div class="row section"  style="text-align: center;">
+
+    <div class="row">
+        <div class="columns small-12">
+          <h4>Manhattan 3rd Ward</h4>
+        </div>
+      </div>
+      <div class="row">
+        <%= @program.program_week %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <h4>Manhattan 3rd Ward</h4>
-  </div>
-  <div class="row">
-    <%= @program.program_week %>
+    <div class="row section">
+      <div class="columns small-12 program-page-layout">
+        <%= @program.body_html.html_safe %>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="columns small-12">
+        <%= @program.announcements %>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="columns small-12">
+        <%= @program.announcements2.html_safe %>
+      </div>
+    </div>
+
   </div>
 </div>
-<div class="row">
-  <div class="columns large-8 program-page-layout">
-    <%= @program.body_html.html_safe %>
-  </div>
-  <div class="columns large-4">
-    <b>Announcements:</b>
-    <%= @program.announcements %>
-  </div>
-</div>
-
-
-
-
