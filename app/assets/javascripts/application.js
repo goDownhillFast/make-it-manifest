@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require vendor/jquery.easing.1.3
 //= require vendor/thumbnails
+//= require vendor/jquery.popline.min
 //= require jquery.ui.all
 //= require chosen.jquery
 //= require people
